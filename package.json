@@ -1,0 +1,29 @@
+{
+  "name": "repositorynew",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maroni19/repositoryNew.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Maroni19/repositoryNew/issues"
+  },
+  "homepage": "https://github.com/Maroni19/repositoryNew#readme",
+  "devDependencies": {
+    "browser-sync": "^2.23.5",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-size": "^3.0.0",
+    "gulp-sourcemaps": "^2.6.3",
+    "gulp-uglify": "^3.0.0"
+  }
+}
