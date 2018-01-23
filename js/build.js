@@ -1,0 +1,4 @@
+console.log('start1');
+console.log('start2');
+console.log('start3');
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1vZHVsZTEuanMiLCJtb2R1bGUyLmpzIiwibW9kdWxlMy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtBQ0FBO0FDQUEiLCJmaWxlIjoiYnVpbGQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJjb25zb2xlLmxvZygnc3RhcnQxJyk7IiwiY29uc29sZS5sb2coJ3N0YXJ0MicpOyIsImNvbnNvbGUubG9nKCdzdGFydDMnKTsiXX0=
