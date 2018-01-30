@@ -2,4 +2,8 @@
 body {
   background-color: aqua; }
 
-/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaG9tZS5jc3MiLCJzb3VyY2VzIjpbImhvbWUuc2NzcyJdLCJzb3VyY2VzQ29udGVudCI6WyJib2R5IHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IGFxdWE7XHJcbn0iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBLEFBQUEsSUFBSSxDQUFDO0VBQ0QsZ0JBQWdCLEVBQUUsSUFBSSxHQUN6QiJ9 */
+/* line 4, scss/home.scss */
+.row {
+  border: 3px solid black; }
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaG9tZS5jc3MiLCJzb3VyY2VzIjpbImhvbWUuc2NzcyJdLCJzb3VyY2VzQ29udGVudCI6WyJib2R5IHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IGFxdWE7XHJcbn1cclxuLnJvdyB7XHJcbiAgICBib3JkZXI6IDNweCBzb2xpZCBibGFjaztcclxufSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUEsQUFBQSxJQUFJLENBQUM7RUFDRCxnQkFBZ0IsRUFBRSxJQUFJLEdBQ3pCOzs7QUFDRCxBQUFBLElBQUksQ0FBQztFQUNELE1BQU0sRUFBRSxlQUFlLEdBQzFCIn0= */
