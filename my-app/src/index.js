@@ -2,70 +2,113 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-
-
-
-class Square extends React.Component {
-    render() {
-      return (
-        <button className="square">
-          {/* TODO */}
-        </button>
-      );
-    }
-  }
-  
-  class Board extends React.Component {
-    renderSquare(i) {
-      return <Square />;
-    }
-  
-    render() {
-      const status = 'Next player: X';
-  
-      return (
-        <div>
-          <div className="status">{status}</div>
-          <div className="board-row">
-            {this.renderSquare(0)}
-            {this.renderSquare(1)}
-            {this.renderSquare(2)}
-          </div>
-          <div className="board-row">
-            {this.renderSquare(3)}
-            {this.renderSquare(4)}
-            {this.renderSquare(5)}
-          </div>
-          <div className="board-row">
-            {this.renderSquare(6)}
-            {this.renderSquare(7)}
-            {this.renderSquare(8)}
-          </div>
-        </div>
-      );
-    }
-  }
-  
-  class Game extends React.Component {
-    render() {
-      return (
-        <div className="game">
-          <div className="game-board">
-            <Board />
-          </div>
-          <div className="game-info">
-            <div>{/* status */}</div>
-            <ol>{/* TODO */}</ol>
-          </div>
-        </div>
-      );
-    }
-  }
-  
-  // ========================================
-  
-  ReactDOM.render(
-    <Game />,
-    document.getElementById('root')
+const Title = ({count}) => {
+  return (
+    <div>
+       <h1>ToDo List ({count})</h1>
+    </div>
   );
+}
+
+const TodoForm = ({addTodo}) => {
+  // Input tracker
+  let input;
+  return (
+    <div>
+      <input ref={node => {
+        input = node;
+      }} />
+      <button onClick={() => {
+        addTodo(input.value);
+        input.value = '';
+      }}>
+        + Add
+      </button>
+    </div>
+  );
+};
+
+const Todo = ({todo, remove, complete}) => {
+  // Each Todo
+  return (
+    <li>
+      <span className={todo.completed?'completed':null}>{todo.title}</span>
+      <b style={{ cursor: 'pointer' }} onClick={()=> {complete(todo)}}> V </b>
+      <b style={{ cursor: 'pointer' }} onClick={()=> {remove(todo)}}> X </b>
+    </li>);
+}
+const TodoList = ({todolist, remove, complete}) => {
+  // Map through the todolist
+  const todoItem = todolist.map((todo) => {
+    return (<Todo todo={todo} remove={remove} complete={complete} />)
+  });
+  return (<ul>{todoItem}</ul>);
+}
+
+class TodoApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.removeTodo = this.removeTodo.bind(this)
+    this.indexOfElement = this.indexOfElement.bind(this)
+    this.completeTodo = this.completeTodo.bind(this)
+    this.addTodo = this.addTodo.bind(this)
+    this.state = {
+      data: [
+        {title: "buy milk",completed: false},
+        {title: "send letter",completed: true},
+        {title: "meet with friend",completed: false}
+      ]
+    }
+  }
   
+  indexOfElement(todo){
+    let data = this.state.data;
+    let indexOf = -1
+    data.forEach((item, index) => {
+      if(item.title === todo.title){
+        console.log(item.title)
+        indexOf = index;
+      }
+    })
+    return indexOf;
+  }
+  
+  removeTodo(todo){
+    let data = this.state.data;
+    let indexOfRemovedElem= this.indexOfElement(todo)
+    console.log(data.indexOf(todo))
+    data.splice(indexOfRemovedElem, 1)
+    this.setState({data: data})
+  }
+  
+  completeTodo(todo){
+    let data = this.state.data;
+    let indexOfRemovedElem = this.indexOfElement(todo)
+    data.splice(indexOfRemovedElem, 1, {title:todo.title, completed:!todo.completed})
+    this.setState({data: data})
+    console.log(this.state.data)
+  }
+  
+  addTodo(todoTitle){
+    let data = this.state.data;
+    data.push({title: todoTitle, completed: false})
+    this.setState({data: data})
+    console.log(this.state.data)
+  }
+  
+  render() {
+    return (
+      <div>
+        <Title count={this.state.data.length} />
+        <TodoForm addTodo={this.addTodo} />
+        <TodoList todolist={this.state.data} remove={this.removeTodo} complete={this.completeTodo} />
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <TodoApp />,
+  document.getElementById('root')
+);
+
